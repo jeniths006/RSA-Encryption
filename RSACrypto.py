@@ -69,6 +69,27 @@ print("Deciphered text: ", deciphered_text)
 
 
 
+def encrypt_text(message, e, n):
+    encrypted_chars = []
+    for char in message:
+        encrypted_chars.append(encrypter(ord(char), e, n))
+
+print(encrypt_text("Hi", e, n))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
