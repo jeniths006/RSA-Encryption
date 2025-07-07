@@ -7,7 +7,7 @@ class RSAKeyGenerator:
         self.p = self.generate_prime(bit_length)
         self.q = self.generate_prime(bit_length)
         self.n = self.p * self.q
-        self.phi_n = self.n - self.p - self.q + 1
+        self.phi_n = (self.p - 1) * (self.q - 1)
         self.e = self.generate_public_key()
         self.d = pow(self.e, -1, self.phi_n)
 
@@ -24,10 +24,7 @@ class RSAKeyGenerator:
         raise Exception("No valid public key found")
 
     def get_public_key(self):
-        return (self.n, self.e)
+        return (self.e, self.n)
 
     def get_private_key(self):
-        return (self.n, self.d)
-
-    def get_n(self):
-        return self.n
+        return (self.d, self.n)
